@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<body>
+
+    {{>navBar}}
+
+    <h1>{{title}}</h1>
+
+    {{#incompleteGoals}}
+    <div>
+        Name of Trainer: {{name}}
+    </div>
+    <div>
+        Goal to be Achieved: {{goal}}
+    </div>
+    <div>
+        Length of Goal (in minutes or reps): {{duration}}
+    </div>
+    <div>
+        Scheduled Date: {{date}}
+    </div>
+    <div>
+        Has the Goal been completed: {{completed}}
+    </div>
+    <hr>
+    {{/incompleteGoals}}
+    {{^incompleteGoals}}
+    No entries yet
+    {{/incompleteGoals}}
+
+</body>
+</html>

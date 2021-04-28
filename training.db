@@ -1,0 +1,6 @@
+{"name":"Fred","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"9eluU9eOq9ISaYfW"}
+{"name":"Craig","goal":"                  \r\n        Cycling","duration":"30 mins","date":"2021-03-23","completed":"false","_id":"QAkt52YXdgygRoLn"}
+{"name":"bob","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"q3oJEOhb4Voov1u5"}
+{"name":"john","goal":"swimming","duration":"30 mins","date":"08-12-2020","completed":"false","_id":"pdeG1kzHRsJ9SaqY"}
+{"$$deleted":true,"_id":"pdeG1kzHRsJ9SaqY"}
+{"name":"Fred","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"q3oJEOhb4Voov1u5"}

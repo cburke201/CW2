@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>header}}
+</head>
+<body>
+
+    {{>navBar}}
+
+    <h1>{{title}}</h1>
+
+    </div>
+    <br>
+
+    {{#PostByTrainer}}
+    <div>
+        Name of Trainer: <a href="/posts/{{name}}">{{name}}</a>
+    </div>
+    <div>
+        Goal to be Achieved: {{goal}}
+    </div>
+    <div>
+        Length of Goal (in minutes or reps): {{duration}}
+    </div>
+    <div>
+        Scheduled Date: {{date}}
+    </div>
+    <div>
+        Has the Goal been completed: {{completed}}
+    </div>
+    <hr>
+    {{/PostByTrainer}}
+    {{^PostByTrainer}}
+    No entries yet
+    {{/PostByTrainer}}
+
+</body>
+</html>
