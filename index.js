@@ -4,15 +4,25 @@ const nedb = require('nedb');
 const mustache = require('mustache-express');
 const bodyParser = require('body-parser');
 const router = require('./routes/trainerRoutes.js');
+const auth = require('./auth/auth.js');
+const session = require('express-session');
+const passport = require('passport');
 
 const db = new nedb();
 const app = express();
 app.engine('mustache', mustache()); 
 app.set('view engine', 'mustache');
-const public = path.join(__dirname, 'public');
-app.use(bodyParser.urlencoded({extended: false}));
 
+const public = path.join(__dirname, 'public');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
+app.use(session({ secret: 'dont tell anyone', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(public));
+
+auth.init();
 
 app.use('/', router);
 

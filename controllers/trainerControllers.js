@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const trainerDAO = require('../models/trainerModel');
+const userDAO = require('../models/userModel');
 
 const app = express();
 const db = new trainerDAO();
@@ -11,7 +12,7 @@ app.use(express.static(img));
 
 // db.db.loadDatabase();
 
-db.init();
+// db.init();
 
 exports.landing_page = function(req, res) {
     res.render('homepage', {
@@ -24,21 +25,23 @@ exports.training_goals = function(req, res) {
     db.getAllTrainingGoals().then((allGoals) => {
         res.render('trainingGoals', {
             'title': 'Training Goals',
-            'trainingGoals': allGoals
+            'trainingGoals': allGoals,
+            "user": req.user
         });
         console.log('promise resolved');
     }).catch((err) => {
         console.log('promise rejected', err);
     })
 
-    db.removeTrainingGoal(req.body.name);
+    // db.removeTrainingGoal(req.body.name);
 
-    db.updateGoal();
+    // db.updateGoal();
 }
 
 exports.show_new_training_goal = function(req, res) {
     res.render('insertForm', {
-        'title': 'Insert Training goal'
+        'title': 'Insert Training goal',
+        'user': req.user.user
     });
 }
 
@@ -53,6 +56,10 @@ exports.post_training_goal = function(req, res) {
     res.redirect('/trainingGoals');
 }
 
+exports.delete_entry = function(req, res){
+    db.deleteEntry(req.params.id);    
+    res.redirect('/trainingGoals');
+}
 exports.find_completed_entries = function(req, res) {
     // find all entries for tasks which have been completed
     db.getCompletedGoals().then((compGoals) => {
@@ -100,6 +107,44 @@ exports.testError500 = function(req, res) {
     } else {
     throw(error500);
     }
+}
+
+exports.show_login_page = function(req, res) {
+    res.render('login', {
+        'title': 'Training Goals: Login'
+    });
+}
+
+exports.post_login = function(req, res) {
+    console.log('serializeUser wrote', req.session.passport.user);
+    res.redirect('/trainingGoals');
+}
+
+exports.show_register_page = function(req, res) {
+    res.render("register");
+}
+
+exports.post_new_user = function(req, res) {
+    const user = req.body.username;
+    const password = req.body.pass;
+    //console.log("register user", user, "password", password);
+    if(!user || !password ) {
+        res.send(401, 'no user or no password');
+        return;
+    }
+    userDAO.lookup(user, function(err, u) {
+        if(u) {
+            res.send(401, "User exists: ", user);
+            return;
+        }
+        userDAO.create(user, password);
+        res.redirect('login');
+    })
+}
+
+exports.logout = function (req, res) {
+    req.logout();
+    res.redirect("login");
 }
 
 exports.error404 = function(req, res) {

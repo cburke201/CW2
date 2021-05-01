@@ -1,6 +1,6 @@
-{"name":"Fred","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"9eluU9eOq9ISaYfW"}
-{"name":"Craig","goal":"                  \r\n        Cycling","duration":"30 mins","date":"2021-03-23","completed":"false","_id":"QAkt52YXdgygRoLn"}
-{"name":"bob","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"q3oJEOhb4Voov1u5"}
-{"name":"john","goal":"swimming","duration":"30 mins","date":"08-12-2020","completed":"false","_id":"pdeG1kzHRsJ9SaqY"}
-{"$$deleted":true,"_id":"pdeG1kzHRsJ9SaqY"}
-{"name":"Fred","goal":"running","duration":"30 mins","date":"08-12-2022","completed":"true","_id":"q3oJEOhb4Voov1u5"}
+{"name":"Craig","goal":"Running                  \r\n        ","duration":"30 mins","date":"2021-04-28","completed":"false","_id":"3Bbxfd6MU3yk6TwI"}
+{"name":"craig","goal":"Jumping                  \r\n        ","duration":"30 mins","date":"2021-04-30","completed":"true","_id":"QxpLYkiSiHOloDNi"}
+{"name":"craig","goal":"                  Football\r\n        ","duration":"1 hr","date":"2021-04-30","completed":"false","_id":"m3KqIixpPd6v79dE"}
+{"$$deleted":true,"_id":"3Bbxfd6MU3yk6TwI"}
+{"name":"craig","goal":" juijiujuu9                 \r\n        ","duration":"40min","date":"2021-04-30","completed":"true","_id":"cACpfJ7qMCMfSqx9"}
+{"$$deleted":true,"_id":"cACpfJ7qMCMfSqx9"}

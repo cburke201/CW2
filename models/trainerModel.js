@@ -11,7 +11,7 @@ class trainer {
         }
     }
 
-    init() {
+    /*init() {
         this.db.insert ({
             name: "bob",
             goal: "running",
@@ -32,6 +32,7 @@ class trainer {
         });
         console.log('db entry john inserted');
     }
+    */
 
     addNewTrainingGoal(name, goal, duration, date, completed) {
         let trainingGoal = {
@@ -66,7 +67,18 @@ class trainer {
         })
     }
 
-    updateGoal(){
+    deleteEntry(id){
+        
+        this.db.remove({_id: id}, {}, function(err, rem) {
+            if(err) {
+                console.log('error in deleteEntry', err);
+            } else {
+                console.log(rem, 'entries deleted');
+            }
+        })
+    }
+    
+    /*updateGoal(){
     
         this.db.update({ name: 'bob' }, {   name: 'Fred',
                                             goal: "running",
@@ -80,7 +92,7 @@ class trainer {
             } 
         });
     }
-    
+    */
 
     getAllTrainingGoals() {
         return new Promise((resolve, reject) => {
