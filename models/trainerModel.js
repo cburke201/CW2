@@ -53,19 +53,19 @@ class trainer {
         })
     }
     
-    removeTrainingGoal(name) {
-        let remGoal = {
-            name: "john"
-        }
+    // removeTrainingGoal(name) {
+    //     let remGoal = {
+    //         name: "john"
+    //     }
 
-        this.db.remove(remGoal, function(err, doc) {
-            if(err) {
-                console.log('error removing goal', doc);
-            } else {
-                console.log('goal removed from database');
-            }
-        })
-    }
+    //     this.db.remove(remGoal, function(err, doc) {
+    //         if(err) {
+    //             console.log('error removing goal', doc);
+    //         } else {
+    //             console.log('goal removed from database');
+    //         }
+    //     })
+    // }
 
     deleteEntry(id){
         
@@ -78,6 +78,22 @@ class trainer {
         })
     }
     
+    updateEntry(id, name, goal, duration, date, completed) {
+
+        this.db.update({_id: id}, { name: name,
+                                    goal: goal,
+                                    duration: duration,
+                                    date: new Date().toISOString().split('T')[0],
+                                    completed: completed}, {}, function (err, goalUpdate) {
+
+            if(err) {
+                console.log('error updating goal', goalUpdate);
+            } else {
+                console.log('goal updated in database');
+            }
+        })
+    }
+
     /*updateGoal(){
     
         this.db.update({ name: 'bob' }, {   name: 'Fred',

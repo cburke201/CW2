@@ -60,6 +60,20 @@ exports.delete_entry = function(req, res){
     db.deleteEntry(req.params.id);    
     res.redirect('/trainingGoals');
 }
+ 
+exports.show_update_entry = function(req, res) {
+    res.render("update", {
+        'title': 'Update Entry',
+        'user': req.user.user
+    });
+}
+
+exports.post_update_entry = function(req, res) {
+    console.log('id in update_entry', req.params.id);
+    db.updateEntry(req.params.id, req.body.name, req.body.goal, req.body.duration, req.body.date, req.body.completed);
+    res.redirect('/trainingGoals');
+}
+
 exports.find_completed_entries = function(req, res) {
     // find all entries for tasks which have been completed
     db.getCompletedGoals().then((compGoals) => {

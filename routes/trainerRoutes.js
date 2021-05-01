@@ -22,6 +22,10 @@ router.get('/error', controller.testError500, controller.error500);
 
 router.get('/delete/:id', controller.delete_entry);
 
+router.get('/update/:id', controller.show_update_entry);
+
+router.post('/update/:id', controller.post_update_entry);
+
 router.get('/login', controller.show_login_page);
 
 router.post('/login', auth.authorize('/login'), controller.post_login);
