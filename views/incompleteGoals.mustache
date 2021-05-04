@@ -6,9 +6,13 @@
 <body>
 
     {{>navBar}}
+    <br>
 
     <h1>{{title}}</h1>
+    <hr>
+    <br>
 
+    {{#user}}  
     {{#incompleteGoals}}
     <div>
         Name of Trainer: {{name}}
@@ -27,6 +31,7 @@
     </div>
     <hr>
     {{/incompleteGoals}}
+    {{/user}}  
     {{^incompleteGoals}}
     No entries yet
     {{/incompleteGoals}}

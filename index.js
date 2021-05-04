@@ -24,6 +24,8 @@ app.use(express.static(public));
 
 auth.init();
 
+app.use('/img/', express.static('./img/'));
+
 app.use('/', router);
 
 app.use('/trainingGoals', router);

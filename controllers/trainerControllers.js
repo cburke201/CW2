@@ -73,13 +73,13 @@ exports.post_update_entry = function(req, res) {
     db.updateEntry(req.params.id, req.body.name, req.body.goal, req.body.duration, req.body.date, req.body.completed);
     res.redirect('/trainingGoals');
 }
-
 exports.find_completed_entries = function(req, res) {
     // find all entries for tasks which have been completed
     db.getCompletedGoals().then((compGoals) => {
         res.render('completedGoals', {
             'title': 'Completed Goals',
-            'completedGoals': compGoals
+            'completedGoals': compGoals,
+            "user": req.user
         });
         console.log('promise resolved');
     }).catch((err) => {
@@ -91,7 +91,8 @@ exports.find_incomplete_entries = function(req, res) {
     db.getIncompleteGoals().then((incompGoals) => {
         res.render('incompleteGoals', {
             'title': 'incomplete Goals',
-            'incompleteGoals': incompGoals
+            'incompleteGoals': incompGoals,
+            "user": req.user
         });
         console.log('promise resolved');
     }).catch((err) => {
