@@ -1,8 +1,16 @@
-# WebDev2coursework
+# WebDev2coursework CW2
+
+In order to install. This repository needs to be downloaded into an appropriate editor such as Visual Studio Code. 
+
+It can be run using the command node index.js.
+
+Use of .gitignore was used for deployment on heroku and the deployed website can be found at https://coursework2craigburke.herokuapp.com/
+
+In the event of download, the .gitignore must be remove to allow access to node_modules folder which allows the rendering of the website.
 
 Craig Burke - Student ID:2024071
 
-The code contained in this repository forms the basis for my Coursework1 submission
+The code contained in this repository forms the basis for my Coursework1 and Coursework2 submission
 
 The brief was to create an activity planner.
 
